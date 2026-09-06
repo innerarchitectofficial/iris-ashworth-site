@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRIS ASHWORTH — 기록</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0b0b10;
+    --surface: #15151d;
+    --ink: #ece5d8;
+    --muted: #948d7c;
+    --gold: #b08d45;
+    --gold-line: rgba(176,141,69,0.4);
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+
+  /* ---------- Header ---------- */
+
+  header{
+    padding: 40px 24px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(176,141,69,0.16);
+  }
+
+  .site-mark{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .site-mark:hover{
+    color: var(--gold);
+  }
+
+  /* ---------- Page intro ---------- */
+
+  .intro{
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 56px 24px 24px;
+    text-align: center;
+  }
+
+  .intro-title{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+    font-weight: 500;
+    margin: 0 0 14px;
+  }
+
+  .intro-sub{
+    font-size: 0.94rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ---------- Chapter list ---------- */
+
+  .list{
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 24px 24px 100px;
+  }
+
+  .chapter-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 4px;
+    border-bottom: 1px solid rgba(236,229,216,0.1);
+    transition: opacity 0.15s ease;
+  }
+
+  .chapter-row:hover{
+    opacity: 0.75;
+  }
+
+  .chapter-left{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .chapter-num{
+    font-size: 0.78rem;
+    color: var(--gold);
+    letter-spacing: 0.03em;
+  }
+
+  .chapter-title{
+    font-size: 1.02rem;
+    color: var(--ink);
+  }
+
+  .chapter-date{
+    font-size: 0.8rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .chapter-row.locked{
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .chapter-row.locked .chapter-date{
+    font-style: italic;
+  }
+
+  @media (max-width: 480px){
+    .chapter-row{
+      flex-wrap: wrap;
+      row-gap: 6px;
+      padding: 20px 4px;
+    }
+    .chapter-date{
+      width: 100%;
+      text-align: left;
+      font-size: 0.76rem;
+    }
+    header{ padding: 32px 20px 16px; }
+    .intro{ padding: 44px 20px 16px; }
+    .list{ padding: 20px 20px 80px; }
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer{
+    padding: 40px 24px 48px;
+    text-align: center;
+    border-top: 1px solid rgba(176,141,69,0.16);
+  }
+
+  .footer-copy{
+    font-size: 0.78rem;
+    color: #625c4f;
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="site-mark">Iris Ashworth</a>
+  </header>
+
+  <section class="intro">
+    <h1 class="intro-title">기록</h1>
+    <p class="intro-sub">
+      가입 없이, 지금 바로 읽을 수 있습니다.<br>
+      새 기록은 월·수·금 저녁 6시에 도착합니다.
+    </p>
+  </section>
+
+  <section class="list">
+
+    <a href="novel_chapter_01.html" class="chapter-row">
+      <div class="chapter-left">
+        <span class="chapter-num">제1화</span>
+        <span class="chapter-title">거울은 그녀를 마녀라 불렀다</span>
+      </div>
+      <span class="chapter-date">9.6</span>
+    </a>
+
+    <a href="novel_chapter_02.html" class="chapter-row">
+      <div class="chapter-left">
+        <span class="chapter-num">제2화</span>
+        <span class="chapter-title">길들여진 공주</span>
+      </div>
+      <span class="chapter-date">9.6</span>
+    </a>
+
+    <a href="novel_chapter_03.html" class="chapter-row">
+      <div class="chapter-left">
+        <span class="chapter-num">제3화</span>
+        <span class="chapter-title">완벽한 얼굴</span>
+      </div>
+      <span class="chapter-date">9.6</span>
+    </a>
+
+    <div class="chapter-row locked">
+      <div class="chapter-left">
+        <span class="chapter-num">제4화</span>
+        <span class="chapter-title">다음 기록을 준비하고 있습니다</span>
+      </div>
+      <span class="chapter-date">9.7 예정</span>
+    </div>
+
+  </section>
+
+  <footer>
+    <p class="footer-copy">Published by Inner Architect</p>
+  </footer>
+
+</body>
+</html>
