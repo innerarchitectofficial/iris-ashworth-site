@@ -170,57 +170,58 @@
     </p>
   </section>
 
-  <section class="list">
+  <section class="list" id="chapter-list">
+    <!-- JS로 자동 렌더링됩니다. 아래 script의 chapters 배열만 수정하시면 됩니다. -->
+  </section>
 
-    <a href="novel_chapter_01.html" class="chapter-row">
-      <div class="chapter-left">
-        <span class="chapter-num">제1화</span>
-        <span class="chapter-title">거울은 그녀를 마녀라 불렀다</span>
-      </div>
-      <span class="chapter-date">9.6</span>
-    </a>
-
-    <a href="novel_chapter_02.html" class="chapter-row">
-      <div class="chapter-left">
-        <span class="chapter-num">제2화</span>
-        <span class="chapter-title">길들여진 공주</span>
-      </div>
-      <span class="chapter-date">9.6</span>
-    </a>
-
-    <a href="novel_chapter_03.html" class="chapter-row">
-      <div class="chapter-left">
-        <span class="chapter-num">제3화</span>
-        <span class="chapter-title">완벽한 얼굴</span>
-      </div>
-      <span class="chapter-date">9.6</span>
-    </a>
-
-    <a href="novel_chapter_04.html" class="chapter-row">
-      <div class="chapter-left">
-        <span class="chapter-num">제4화</span>
-        <span class="chapter-title">변경에서 온 사절단</span>
-      </div>
-      <span class="chapter-date">9.7</span>
-    </a>
-
-    <a href="novel_chapter_05.html" class="chapter-row">
-      <div class="chapter-left">
-        <span class="chapter-num">제5화</span>
-        <span class="chapter-title">첫 번째 영예</span>
-      </div>
-      <span class="chapter-date">9.9</span>
-    </a>
-
+  <section class="list" style="padding-top: 0;">
     <div class="chapter-row locked">
       <div class="chapter-left">
-        <span class="chapter-num">제6화</span>
+        <span class="chapter-num">다음 화</span>
         <span class="chapter-title">다음 기록을 준비하고 있습니다</span>
       </div>
       <span class="chapter-date">예정</span>
     </div>
-
   </section>
+
+  <script>
+    // 각 화의 공개 예정 시각(release)을 한국시간(KST) 기준으로 적어두면,
+    // 그 시각이 지나기 전까지는 잠금(locked) 상태로, 지나면 자동으로 링크가 열립니다.
+    // 즉 파일은 미리 올려두셔도 되고, 실제 공개는 이 시각에 맞춰 자동으로 됩니다.
+    const chapters = [
+      { num: "제1화", title: "거울은 그녀를 마녀라 불렀다", href: "novel_chapter_01.html", date: "9.6",  release: "2026-09-06T18:00:00+09:00" },
+      { num: "제2화", title: "길들여진 공주",               href: "novel_chapter_02.html", date: "9.6",  release: "2026-09-06T18:00:00+09:00" },
+      { num: "제3화", title: "완벽한 얼굴",                 href: "novel_chapter_03.html", date: "9.6",  release: "2026-09-06T18:00:00+09:00" },
+      { num: "제4화", title: "변경에서 온 사절단",           href: "novel_chapter_04.html", date: "9.7",  release: "2026-09-07T18:00:00+09:00" },
+      { num: "제5화", title: "첫 번째 영예",                 href: "novel_chapter_05.html", date: "9.9",  release: "2026-09-09T18:00:00+09:00" },
+      { num: "제6화", title: "거울 밖의 왈츠",               href: "novel_chapter_06.html", date: "9.13", release: "2026-09-13T18:00:00+09:00" }
+
+      // 다음 화를 추가할 때는 아래 형식으로 한 줄만 더하시면 됩니다:
+      // , { num: "제7화", title: "실제 제목", href: "novel_chapter_07.html", date: "9.15", release: "2026-09-15T18:00:00+09:00" }
+    ];
+
+    const now = new Date();
+    const list = document.getElementById('chapter-list');
+
+    chapters.forEach(ch => {
+      const releaseTime = new Date(ch.release);
+      const isReleased = now >= releaseTime;
+
+      const row = document.createElement(isReleased ? 'a' : 'div');
+      row.className = 'chapter-row' + (isReleased ? '' : ' locked');
+      if (isReleased) row.href = ch.href;
+
+      row.innerHTML = `
+        <div class="chapter-left">
+          <span class="chapter-num">${ch.num}</span>
+          <span class="chapter-title">${isReleased ? ch.title : '다음 기록을 준비하고 있습니다'}</span>
+        </div>
+        <span class="chapter-date">${isReleased ? ch.date : '공개 예정'}</span>
+      `;
+
+      list.appendChild(row);
+    });
+  </script>
 
   <footer>
     <p class="footer-copy">Published by Inner Architect</p>
