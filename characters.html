@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="완벽한 얼굴을 그만두는 법 — 등장인물 소개">
+  <title>등장인물 — 완벽한 얼굴을 그만두는 법</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: dark; --bg:#0b0b10; --surface:#15151d; --ink:#ece5d8; --muted:#b1a99b; --gold:#b08d45; --line:rgba(176,141,69,.26); }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:Inter,"Noto Sans KR","Malgun Gothic",sans-serif; -webkit-font-smoothing:antialiased; word-break:keep-all; overflow-wrap:break-word; }
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; }
+    a:focus-visible,button:focus-visible { outline:2px solid var(--ink); outline-offset:6px; }
+    .skip { position:fixed; top:12px; left:12px; z-index:10; padding:12px 20px; background:var(--ink); color:var(--bg); transform:translateY(-160%); }
+    .skip:focus { transform:translateY(0); }
+    .top-logo { text-align:center; padding:44px 24px 20px; }
+    .top-logo img { width:100%; max-width:360px; height:auto; display:inline-block; }
+    .site-nav { display:flex; gap:36px; justify-content:center; align-items:center; font-size:.84rem; color:var(--muted); }
+    .site-nav a { padding:13px 0; border-bottom:1px solid transparent; }
+    .site-nav a[aria-current="page"] { color:var(--ink); border-bottom-color:var(--gold); }
+    .site-nav a:hover { color:var(--ink); }
+    main { width:min(100% - 64px,1040px); margin:0 auto; }
+    .intro { text-align:center; padding:62px 0 38px; }
+    .eyebrow { color:var(--gold); font-family:"Cormorant Garamond",serif; letter-spacing:.24em; font-size:.83rem; margin:0 0 16px; }
+    h1 { margin:0; font-family:"Noto Serif KR","Batang",serif; font-size:clamp(1.8rem,3.4vw,2.5rem); line-height:1.5; font-weight:400; letter-spacing:-.035em; }
+    .intro-sub { font-size:.9rem; line-height:1.8; margin:16px 0 0; color:var(--muted); }
+    .characters { display:flex; justify-content:center; gap:clamp(24px,5.4vw,76px); padding:8px 12px 42px; }
+    .character-tab { flex:0 0 164px; display:flex; flex-direction:column; align-items:center; gap:17px; color:var(--muted); background:none; border:0; padding:10px 8px; cursor:pointer; border-radius:4px; }
+    .avatar { display:block; width:110px; height:110px; border-radius:50%; padding:5px; border:1px solid rgba(236,229,216,.16); transition:border-color .2s,box-shadow .2s,transform .2s; }
+    .avatar img { display:block; width:100%; height:100%; border-radius:50%; object-fit:cover; }
+    .tab-name { font-size:.94rem; letter-spacing:.02em; line-height:1.4; }
+    .character-tab:hover .avatar { border-color:var(--gold); transform:translateY(-3px); }
+    .character-tab[aria-selected="true"] { color:var(--ink); }
+    .character-tab[aria-selected="true"] .avatar { border-color:var(--gold); box-shadow:0 0 0 3px var(--bg),0 0 0 4px rgba(176,141,69,.45); }
+    .character-tab[aria-selected="true"] .tab-name { color:#d0b274; }
+    .detail { border-top:1px solid var(--line); padding-top:42px; display:grid; grid-template-columns:minmax(0,390px) minmax(0,1fr); gap:clamp(36px,6vw,78px); align-items:start; }
+    .portrait-frame { margin:0; position:relative; align-self:center; }
+    .portrait { width:100%; height:auto; aspect-ratio:9/16; object-fit:contain; display:block; background:var(--surface); border:1px solid var(--line); }
+    .portrait-caption { display:flex; justify-content:space-between; align-items:center; margin-top:14px; color:var(--muted); font-size:.68rem; letter-spacing:.1em; }
+    .portrait-caption span:first-child { font-family:"Cormorant Garamond",serif; color:var(--gold); }
+    .detail-copy { padding:12px 0 0; }
+    .detail-kicker { margin:0 0 16px; color:var(--gold); font-size:.72rem; letter-spacing:.18em; }
+    h2 { font-family:"Noto Serif KR","Batang",serif; font-size:clamp(2rem,4vw,2.7rem); font-weight:400; letter-spacing:-.04em; margin:0 0 9px; line-height:1.4; }
+    .role { font-size:.91rem; color:var(--muted); margin:0; line-height:1.7; }
+    .quote { font-family:"Noto Serif KR","Batang",serif; font-size:clamp(1.08rem,2vw,1.25rem); line-height:1.9; padding-left:21px; margin:34px 0 30px; border-left:1px solid var(--gold); color:#d9c8a6; }
+    .bio { font-size:.96rem; line-height:2; color:#c2bdb3; }
+    .bio p { margin:0 0 20px; white-space:pre-line; }
+    .quote { white-space:pre-line; }
+    .detail-footer { margin-top:38px; padding-top:20px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .detail-count { font-family:"Cormorant Garamond",serif; color:var(--muted); letter-spacing:.15em; font-size:.88rem; }
+    .next { border:0; background:none; color:var(--ink); cursor:pointer; padding:12px 0 12px 12px; font-size:.83rem; }
+    .next span { display:inline-block; color:var(--gold); margin-left:14px; transition:transform .2s; }
+    .next:hover span { transform:translateX(4px); }
+    .return { margin-top:64px; padding:26px 0; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px; font-size:.8rem; color:var(--muted); line-height:1.8; }
+    .return a { color:var(--ink); }
+    .return a:hover { color:#d0b274; }
+    footer { text-align:center; padding:28px 24px 44px; font-size:.72rem; color:var(--muted); }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    .appearing { animation:reveal .28s ease-out; }
+    @keyframes reveal { from { opacity:.35; transform:translateY(5px); } to { opacity:1; transform:translateY(0); } }
+    @media(max-width:700px) {
+      main { width:min(100% - 40px,520px); }
+      .top-logo { padding:28px 24px 12px; }
+      .top-logo img { max-width:280px; }
+      .intro { padding:40px 0 26px; }
+      .characters { justify-content:safe center; gap:18px; overflow-x:auto; padding:10px 9px 26px; scrollbar-width:thin; scrollbar-color:var(--gold) var(--bg); }
+      .character-tab { flex-basis:112px; padding:8px 2px; gap:13px; }
+      .avatar { width:78px; height:78px; padding:4px; }
+      .tab-name { font-size:.84rem; }
+      .detail { grid-template-columns:1fr; gap:26px; padding-top:28px; }
+      .portrait-frame { width:100%; max-width:390px; margin:0 auto; align-self:start; }
+      .detail-copy { padding:0; }
+      .quote { margin-top:26px; }
+      .detail-footer { margin-top:26px; }
+      .return { margin-top:40px; align-items:flex-start; flex-direction:column; gap:8px; }
+    }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }
+  </style>
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+  <header class="top-logo"><a href="index.html" aria-label="작품 소개로 이동"><img src="images/brand-logo.jpg" alt="Iris Ashworth" width="720" height="288" decoding="async"></a></header>
+  <nav class="site-nav" aria-label="주 메뉴"><a href="index.html">작품 소개</a><a href="characters.html" aria-current="page">등장인물</a></nav>
+  <main id="main">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">THE CHARACTERS</p>
+      <h1 id="page-title">이야기를 살아가는 얼굴들</h1>
+      <p class="intro-sub">한 사람의 얼굴 너머, 그 안에 담긴 이야기.<br>인물을 선택해 자세히 만나보세요.</p>
+    </section>
+    <div class="characters" role="tablist" aria-label="등장인물 선택"></div>
+    <section class="detail" id="character-detail" role="tabpanel" tabindex="0" aria-labelledby="character-tab-0">
+      <figure class="portrait-frame">
+        <img class="portrait" id="portrait" alt="" width="1080" height="1920">
+        <figcaption class="portrait-caption"><span id="portrait-label"></span><span id="portrait-note"></span></figcaption>
+      </figure>
+      <header class="detail-heading">
+        <p class="detail-kicker" id="detail-kicker"></p>
+        <h2 id="character-name"></h2>
+        <p class="role" id="character-role"></p>
+      </header>
+      <div class="detail-copy">
+        <p class="quote" id="character-quote"></p>
+        <div class="bio" id="character-bio"></div>
+        <div class="detail-footer"><span class="detail-count" id="detail-count"></span><button class="next" type="button">다음 인물<span aria-hidden="true">→</span></button></div>
+      </div>
+    </section>
+    <p class="sr-only" id="selection-status" role="status" aria-live="polite"></p>
+    <noscript><p>등장인물 선택 기능을 이용하려면 브라우저의 JavaScript를 켜주세요.</p></noscript>
+    <div class="return"><a href="index.html">← 작품 소개로 돌아가기</a><span>완벽한 얼굴을 그만두는 법 · IRIS ASHWORTH</span></div>
+  </main>
+  <footer>Published by Inner Architect</footer>
+  <script>
+    // 공개용 소개문. 모든 인물은 사용자가 제공한 최신 문안을 반영했습니다.
+    // image/thumbnail에는 상대 경로나 이미지 URL을 입력합니다.
+    // 인물을 더 추가하거나 삭제하면 원형 메뉴와 인원수가 자동으로 갱신됩니다.
+    const characters = [
+      {
+        name:'아이리스 애시워스', englishName:'IRIS ASHWORTH',
+        role:'애시워스 왕국의 공주이자 제1 왕위 계승자.',
+        image:'images/iris-ashworth.jpg', imageSmall:'images/iris-ashworth-small.jpg', thumbnail:'images/iris-ashworth-thumb.jpg', thumbnailPosition:'50% 18%', imagePosition:'center',
+        quote:'모두에게 필요한 사람이었지만,\n정작 자신이 원하는 삶은 묻지 않았던 공주.',
+        paragraphs:[
+          '영리하고 결단력 있는 아이리스는 왕국이 인정한 완벽한 후계자다. 왕실과 백성에 대한 책임을 성실히 다하며, 자신이 무엇을 원하는지보다 무엇을 해야 하는지를 먼저 생각한다.',
+          '사랑받고 보호받으며 자라온 삶이었다. 아이리스 역시 그것이 자신을 위한 삶이라고 믿었다. 마음을 외면할수록 조여드는 사파이어 목걸이도, 목에 남는 상처와 가빠지는 숨도, 자신이 조금 더 견디면 되는 일이라고 여겼다.',
+          '그러나 거울이 판정한 자신과 스스로 느끼는 감각이 어긋나기 시작하고, 낯선 만남들은 오랫동안 의심하지 않았던 믿음을 흔든다. 당연하게 받아들였던 미래에도 처음으로 의문이 생긴다.',
+          '늘 다른 이들의 기대에 답해왔던 아이리스는 비로소 자신에게 묻기 시작한다.',
+          '그 물음 끝에 왕관을 거절한 공주를,\n왕국은 마녀라 부른다.',
+          '누군가를 사랑하고 지키면서도,\n자기 자신을 잃지 않을 수 있을까.'
+        ], color:'#625344'
+      },
+      {
+        name:'홀리스 베인', englishName:'HOLLIS VANE',
+        role:'북부 베인가의 후계자이자, 북부를 대표해 왕국의 궁정에 온 사절.',
+        image:'images/hollis-vane.jpg', imageSmall:'images/hollis-vane-small.jpg', thumbnail:'images/hollis-vane-thumb.jpg', thumbnailPosition:'50% 18%', imagePosition:'center',
+        quote:'어디에도 붙잡히지 않으려 했지만,\n누군가의 곁에 머무는 일에는 서툴렀던 남자.',
+        paragraphs:[
+          '느긋하고 격의 없는 태도 속에 몸에 밴 예법과 날카로운 판단력을 지녔다. 궁정의 질서를 능숙하게 따르면서도, 그 질서에 맞추기 위해 사람의 삶을 고쳐 쓰라는 요구에는 순순히 응하지 않는다.',
+          '우아한 귀족이자 자유로운 방랑자. 북부 사람들의 권리를 지키는 협상가이자 자신의 책임을 미뤄온 후계자. 서로 다른 모습이 모두 진실인 그를, 왕국의 거울은 하나의 얼굴로 정하지 못한다.',
+          '아이리스의 완벽한 미소에 이끌린 그의 시선은 어느 순간 드레스 자락을 움켜쥔 손에 머문다. 그는 그녀를 쉽게 해석하지 않는다. 대답을 재촉하지 않고, 말하지 않은 마음을 그대로 남겨둔다. 그렇게 궁금했던 한 사람이 조금씩 소중해진다.',
+          '그러나 타인의 선택을 존중하는 데 익숙한 그도, 정작 자신의 마음을 솔직히 말해야 할 때는 한발 물러선다.',
+          '자유롭게 살아왔다고 믿었지만, 그 자유는 아버지가 가문과 북부의 책임을 짊어지고 있었기에 가능했다. 피할 수 없는 책임과 곁에 있고 싶은 사람 앞에서, 홀리스는 자신이 무엇을 지키고 싶은지 묻기 시작한다.',
+          '자유를 잃지 않으면서도,\n누군가의 곁에 남을 수 있을까.'
+        ], color:'#455463'
+      },
+      {
+        name:'커런 노윅', englishName:'CURRAN NORWICK',
+        role:'노윅가의 후계자이자, 아이리스 애시워스의 정혼자.',
+        image:'images/curran-norwick.jpg', imageSmall:'images/curran-norwick-small.jpg', thumbnail:'images/curran-norwick-thumb.jpg', thumbnailPosition:'50% 28%', imagePosition:'center',
+        quote:'그녀를 지킬 미래는 준비했지만,\n그녀가 원하는 미래는 묻지 않았던 남자.',
+        paragraphs:[
+          '단정하고 신중하며, 맡은 일에 좀처럼 빈틈을 남기지 않는다. 왕실의 행정과 기록을 다루는 커런은 법과 질서가 사람을 보호한다고 믿는다. 이름과 관계, 재산과 권리가 정확히 기록되어야 힘없는 사람도 자신의 삶을 지킬 수 있다고 생각한다.',
+          '아이리스와 함께 자라며 쌓아온 신뢰와 애정은 진심이었다. 그녀가 왕위를 잇고 자신이 그 곁을 지키는 미래도 오래도록 당연했다. 커런은 그녀가 감당할 부담을 덜고, 위험을 미리 막으며, 두 사람의 삶이 흔들리지 않도록 준비해왔다.',
+          '그러나 그녀가 느끼는 고통마저 자신이 이해하는 방식으로 설명하고, 낯선 선택을 위험으로 판단하는 동안, 아이리스가 무엇을 원하는지는 묻지 못했다. 그에게는 안전하게 지켜줄 미래가 분명했기에, 그녀가 그 미래를 원하지 않을 가능성은 쉽게 떠올릴 수 없었다.',
+          '자신이 가장 잘 안다고 믿었던 사람에게서 이제껏 알지 못했던 표정을 발견한다. 함께 믿어온 삶에 아이리스가 의문을 품을수록, 커런은 더욱 빈틈없는 계획을 세우고 그녀를 둘러싼 위험과 변수를 하나씩 통제하려 한다.',
+          '하지만 그가 마련한 안전과 그녀가 원하는 삶 사이의 거리는 조금씩 벌어진다. 언제나 옳은 답을 준비해온 커런에게도, 대신 답할 수 없는 물음이 남는다.',
+          '사랑하는 사람을 지키기 위해,\n자신이 준비한 미래를 놓아줄 수 있을까.'
+        ], color:'#554c43'
+      }
+    ];
+    const twoDigits = number => String(number).padStart(2,'0');
+    function placeholder(index) {
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="750" viewBox="0 0 600 750"><defs><radialGradient id="g" cx="50%" cy="32%" r="80%"><stop stop-color="${characters[index].color}"/><stop offset="1" stop-color="#15151d"/></radialGradient><linearGradient id="s" x2="0" y2="1"><stop stop-color="#c2b8a0" stop-opacity=".28"/><stop offset="1" stop-color="#c2b8a0" stop-opacity=".02"/></linearGradient></defs><path fill="url(#g)" d="M0 0h600v750H0z"/><rect x="58" y="54" width="484" height="642" rx="242" fill="none" stroke="#b08d45" stroke-opacity=".18"/><circle cx="300" cy="280" r="88" fill="url(#s)"/><path d="M116 625v-68c0-94 72-168 184-168s184 74 184 168v68Z" fill="url(#s)"/><path d="M260 655h80" stroke="#b08d45" stroke-opacity=".5"/><text x="300" y="697" text-anchor="middle" font-family="Georgia,serif" font-size="16" letter-spacing="5" fill="#c0aa7c">PORTRAIT ${twoDigits(index+1)}</text></svg>`;
+      return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    }
+    const tablist = document.querySelector('[role="tablist"]');
+    const panel = document.querySelector('#character-detail');
+    const portrait = document.querySelector('#portrait');
+    let selected = 0;
+    const tabs = characters.map((character,index) => {
+      const button = document.createElement('button');
+      button.type = 'button'; button.className = 'character-tab'; button.id = `character-tab-${index}`;
+      button.setAttribute('role','tab'); button.setAttribute('aria-controls','character-detail');
+      const avatar = document.createElement('span'); avatar.className = 'avatar';
+      const img = document.createElement('img'); img.alt = ''; img.width = 110; img.height = 110; img.decoding = 'async';
+      img.src = character.thumbnail || character.image || placeholder(index); img.style.objectPosition = character.thumbnailPosition || character.imagePosition || 'center';
+      img.addEventListener('error',() => { img.src = placeholder(index); },{once:true});
+      avatar.append(img);
+      const label = document.createElement('span'); label.className = 'tab-name'; label.textContent = character.name;
+      button.append(avatar,label); button.addEventListener('click',() => selectCharacter(index));
+      button.addEventListener('keydown',event => {
+        let next;
+        if(event.key === 'ArrowRight') next = (index+1)%characters.length;
+        else if(event.key === 'ArrowLeft') next = (index-1+characters.length)%characters.length;
+        else if(event.key === 'Home') next = 0;
+        else if(event.key === 'End') next = characters.length-1;
+        else return;
+        event.preventDefault(); selectCharacter(next); tabs[next].focus();
+        tabs[next].scrollIntoView({block:'nearest',inline:'nearest',behavior:'instant'});
+      });
+      tablist.append(button); return button;
+    });
+    function selectCharacter(index,announce = true) {
+      selected = index;
+      const character = characters[index];
+      tabs.forEach((tab,i) => { tab.setAttribute('aria-selected',String(i===index)); tab.tabIndex = i===index ? 0 : -1; });
+      panel.setAttribute('aria-labelledby',tabs[index].id);
+      portrait.onerror = () => { portrait.onerror = null; portrait.removeAttribute('srcset'); portrait.src = placeholder(index); portrait.alt = `${character.name} 임시 이미지`; document.querySelector('#portrait-note').textContent = '이미지 준비 중'; };
+      portrait.sizes = '(max-width: 900px) 280px, (max-width: 1100px) 36vw, 390px';
+      portrait.srcset = character.imageSmall ? `${character.imageSmall} 540w, ${character.image} 1080w` : '';
+      portrait.decoding = 'async';
+      portrait.src = character.image || placeholder(index); portrait.alt = character.image ? `${character.name} 인물 이미지` : `${character.name} 임시 이미지`;
+      portrait.style.objectPosition = character.imagePosition || 'center';
+      document.querySelector('#portrait-label').textContent = `CHARACTER / ${twoDigits(index+1)}`;
+      document.querySelector('#portrait-note').textContent = character.image ? character.name : '이미지 준비 중';
+      document.querySelector('#detail-kicker').textContent = character.englishName || `CHARACTER ${twoDigits(index+1)}`;
+      document.querySelector('#character-name').textContent = character.name;
+      document.querySelector('#character-role').textContent = character.role;
+      document.querySelector('#character-quote').textContent = character.quote || '';
+      document.querySelector('#character-quote').hidden = !character.quote;
+      document.querySelector('#character-bio').replaceChildren(...character.paragraphs.map(text => { const p = document.createElement('p'); p.textContent = text; return p; }));
+      document.querySelector('#detail-count').textContent = `${twoDigits(index+1)} / ${twoDigits(characters.length)}`;
+      document.querySelector('.next').hidden = characters.length < 2;
+      panel.classList.remove('appearing'); void panel.offsetWidth; panel.classList.add('appearing');
+      if(announce) document.querySelector('#selection-status').textContent = `${character.name} 소개가 표시되었습니다.`;
+    }
+    document.querySelector('.next').addEventListener('click',() => {
+      selectCharacter((selected+1)%characters.length);
+      panel.focus({preventScroll:true});
+      panel.scrollIntoView({block:'start',behavior:'instant'});
+    });
+    selectCharacter(0,false);
+  </script>
+</body>
+</html>
