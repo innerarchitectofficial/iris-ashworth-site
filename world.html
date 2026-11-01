@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="완벽한 얼굴을 그만두는 법의 세계관. 거울, 이름과 기록, 사파이어 목걸이, 금서 불에 타지 않는 것.">
+  <title>세계관 — 완벽한 얼굴을 그만두는 법</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="reading.css"><link rel="stylesheet" href="responsive.css"><link rel="stylesheet" href="world.css">
+  <script src="world.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+  <header class="top-logo"><a href="index.html" aria-label="작품 소개로 이동"><img src="images/brand-logo.jpg" alt="Iris Ashworth" width="720" height="288" decoding="async"></a></header>
+  <nav class="site-nav" aria-label="주 메뉴"><a href="index.html">작품 소개</a><a href="characters.html">등장인물</a><a href="world.html" aria-current="page">세계관</a></nav>
+  <main id="main">
+    <section class="intro world-intro"><p class="eyebrow">THE WORLD OF ASHWORTH</p><h1>이야기 너머, 왕국의 법칙</h1><p class="intro-sub">거울에 비친 얼굴과 기록된 이름.<br>그 안에서 살아가는 이들의 세계를 만나보세요.</p></section>
+    <section class="world-browser" id="world-browser" aria-label="세계관 목록">
+      <div class="browser-heading"><div class="world-filters" role="group" aria-label="세계관 분류" hidden><button type="button" data-world-filter="all" aria-pressed="true">전체</button><button type="button" data-world-filter="order" aria-pressed="false">왕국의 질서</button><button type="button" data-world-filter="objects" aria-pressed="false">사물과 문헌</button></div><p id="world-count">4개의 이야기</p></div>
+      <div class="collection-tools" id="world-search-tools" hidden><label for="world-search">세계관 찾기</label><input id="world-search" type="search" placeholder="이름이나 단어로 찾아보세요" autocomplete="off"></div>
+      <div class="world-cards"><a class="world-card" href="#mirror" data-category="order"><img src="images/world-mirror-thumb.jpg" alt="" width="50" height="64" decoding="async" style="object-position:50% 22%"><span><small>01 / 왕국의 질서</small><strong>거울</strong></span></a>
+<a class="world-card" href="#records" data-category="order"><img src="images/world-records-thumb.jpg" alt="" width="50" height="64" decoding="async" style="object-position:50% 42%"><span><small>02 / 왕국의 질서</small><strong>이름과 기록</strong></span></a>
+<a class="world-card" href="#sapphire" data-category="objects"><img src="images/world-sapphire-thumb.jpg" alt="" width="50" height="64" decoding="async" style="object-position:50% 65%"><span><small>03 / 사물과 문헌</small><strong>사파이어 목걸이</strong></span></a>
+<a class="world-card" href="#unburnt" data-category="objects"><img src="images/world-unburnt-thumb.jpg" alt="" width="50" height="64" decoding="async" style="object-position:50% 42%"><span><small>04 / 사물과 문헌</small><strong>불에 타지 않는 것</strong></span></a></div>
+      <button class="collection-more" type="button" id="world-more" hidden>세계관 전체 보기</button>
+      <p class="collection-empty" id="world-empty" hidden>검색 결과가 없습니다. 다른 단어로 찾아보세요.</p>
+    </section>
+    <p class="sr-only" id="world-status" role="status" aria-live="polite"></p>
+    <article class="detail world-detail" id="mirror" tabindex="-1" aria-labelledby="mirror-title">
+  <figure class="portrait-frame"><img class="portrait" src="images/world-mirror-small.jpg" srcset="images/world-mirror-small.jpg 540w, images/world-mirror.jpg 900w" sizes="(max-width:900px) 260px, 340px" width="941" height="1672" alt="은빛 거울 천장과 왕좌가 있는 왕실 대전" loading="eager" decoding="async"><figcaption class="portrait-caption"><span>WORLD / 01</span><span>왕국의 질서</span></figcaption></figure>
+  <header class="detail-heading"><p class="detail-kicker">THE MIRROR</p><h2 id="mirror-title">거울</h2><p class="role">왕국이 인정하는 얼굴</p></header>
+  <div class="detail-copy"><div class="bio"><p>애시워스 왕국의 거울은 외모만을 비추지 않는다. 한 사람의 행동과 공식 기록, 사람들 사이에 쌓인 평가가 거울 속 모습에 반영된다. 왕국은 이 모습을 ‘인영’이라 부른다.</p>
+<p>사람들은 인영을 통해 누군가를 믿고, 자격을 인정한다. 혼인과 직업, 거주를 허락받는 일까지 거울 속 모습에 연결되어 있다.</p>
+<p>그러나 거울 속의 평온한 얼굴과, 그 앞에 선 사람이 느끼는 마음이 언제나 같은 것은 아니다.</p></div>
+  <nav class="world-reading-nav" aria-label="세계관 이동"><a href="#world-browser" data-world-back>↑ 목록으로</a><a href="#records" data-world-next>다음 이야기 →</a></nav></div>
+</article>
+<article class="detail world-detail" id="records" tabindex="-1" aria-labelledby="records-title">
+  <figure class="portrait-frame"><img class="portrait" src="images/world-records-small.jpg" srcset="images/world-records-small.jpg 540w, images/world-records.jpg 900w" sizes="(max-width:900px) 260px, 340px" width="941" height="1672" alt="오래된 기록 위로 잉크가 맺힌 펜촉" loading="lazy" decoding="async"><figcaption class="portrait-caption"><span>WORLD / 02</span><span>왕국의 질서</span></figcaption></figure>
+  <header class="detail-heading"><p class="detail-kicker">NAMES &amp; RECORDS</p><h2 id="records-title">이름과 기록</h2><p class="role">한 사람의 삶을 증명하는 것</p></header>
+  <div class="detail-copy"><div class="bio"><p>이 왕국에서 기록된 이름은 법의 보호를 받는 증명이다. 누구의 가족인지, 어디에서 살 수 있는지, 무엇을 소유하고 물려받을 수 있는지가 그 이름에 연결된다.</p>
+<p>기록은 사람의 권리와 관계를 지켜준다. 하지만 정해진 항목에 담기지 않는 삶은, 실제로 존재하면서도 공식적으로 인정받기 어렵다.</p>
+<p>누군가와 함께 살아온 시간만으로는 가족임을 증명할 수 없는 곳. 이곳에서는 자신의 삶을 설명하기 위해, 먼저 기록에 맞는 이름이 필요하다.</p></div>
+  <nav class="world-reading-nav" aria-label="세계관 이동"><a href="#world-browser" data-world-back>↑ 목록으로</a><a href="#sapphire" data-world-next>다음 이야기 →</a></nav></div>
+</article>
+<article class="detail world-detail" id="sapphire" tabindex="-1" aria-labelledby="sapphire-title">
+  <figure class="portrait-frame"><img class="portrait" src="images/world-sapphire-small.jpg" srcset="images/world-sapphire-small.jpg 540w, images/world-sapphire.jpg 900w" sizes="(max-width:900px) 260px, 340px" width="941" height="1672" alt="푸른 사파이어 목걸이와 장식을 만지는 손" loading="lazy" decoding="async"><figcaption class="portrait-caption"><span>WORLD / 03</span><span>사물과 문헌</span></figcaption></figure>
+  <header class="detail-heading"><p class="detail-kicker">THE SAPPHIRE</p><h2 id="sapphire-title">사파이어 목걸이</h2><p class="role">완벽한 공주의 목에 남은 흔적</p></header>
+  <div class="detail-copy"><div class="bio"><p>스물여덟 번째 이름의 날, 아이리스는 정혼자 커런에게 사파이어 목걸이를 받는다. 오래전 왕실의 한 여인을 위해 준비되었던 예물이었다.</p>
+<p>푸른 보석은 공주의 목에서 아름답게 빛난다. 그러나 아이리스가 자신의 마음과 몸의 감각을 외면하며 기대받는 모습에 맞추려 할수록, 목걸이는 숨을 조여온다.</p>
+<p>아이리스는 목에 남는 상처와 가빠지는 숨조차 자신이 조금 더 견디면 되는 일이라고 여긴다. 거울 속 공주는 여전히 완벽하기 때문이다.</p></div>
+  <nav class="world-reading-nav" aria-label="세계관 이동"><a href="#world-browser" data-world-back>↑ 목록으로</a><a href="#unburnt" data-world-next>다음 이야기 →</a></nav></div>
+</article>
+<article class="detail world-detail" id="unburnt" tabindex="-1" aria-labelledby="unburnt-title">
+  <figure class="portrait-frame"><img class="portrait" src="images/world-unburnt-small.jpg" srcset="images/world-unburnt-small.jpg 540w, images/world-unburnt.jpg 900w" sizes="(max-width:900px) 260px, 340px" width="941" height="1672" alt="불에 타지 않는 것이라는 제목이 새겨진 검고 오래된 책 표지" loading="lazy" decoding="async"><figcaption class="portrait-caption"><span>WORLD / 04</span><span>사물과 문헌</span></figcaption></figure>
+  <header class="detail-heading"><p class="detail-kicker">THE UNBURNT</p><h2 id="unburnt-title">금서 『불에 타지 않는 것』</h2><p class="role">왕국이 존재를 부정하는 책</p></header>
+  <div class="detail-copy"><div class="bio"><p>누가 썼는지, 언제 만들어졌는지 알려지지 않은 책. 불에 타지 않아 소각되지 못한 채 봉인되어 있지만, 왕국은 그 책이 존재하지 않는다고 말한다.</p>
+<p>책은 거울의 판정과 기록이 한 사람의 전부를 설명할 수 있는지 묻는다. 당연하게 받아들였던 이름과 역할, 옳다고 믿어온 삶을 다시 바라보게 한다.</p>
+<p>아이리스는 책장을 넘길 때마다 자신이 누구인지 안다고 믿었던 확신에 금이 가는 것을 느낀다. 무엇을 해야 하는지에 가려져 있던, 자신이 무엇을 원하는지에 대한 물음과 함께.</p></div>
+  <nav class="world-reading-nav" aria-label="세계관 이동"><a href="#world-browser" data-world-back>↑ 목록으로</a><a href="#mirror" data-world-next>처음 이야기로 →</a></nav></div>
+</article>
+    <div class="return world-return"><a href="index.html">← 작품 소개</a><a href="characters.html">이 세계의 인물 만나기 →</a></div>
+  </main><footer>Published by Inner Architect</footer>
+</body></html>

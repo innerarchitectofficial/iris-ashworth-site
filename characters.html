@@ -7,91 +7,24 @@
   <title>등장인물 — 완벽한 얼굴을 그만두는 법</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root { color-scheme: dark; --bg:#0b0b10; --surface:#15151d; --ink:#ece5d8; --muted:#b1a99b; --gold:#b08d45; --line:rgba(176,141,69,.26); }
-    * { box-sizing:border-box; }
-    body { margin:0; background:var(--bg); color:var(--ink); font-family:Inter,"Noto Sans KR","Malgun Gothic",sans-serif; -webkit-font-smoothing:antialiased; word-break:keep-all; overflow-wrap:break-word; }
-    a { color:inherit; text-decoration:none; }
-    button { font:inherit; }
-    a:focus-visible,button:focus-visible { outline:2px solid var(--ink); outline-offset:6px; }
-    .skip { position:fixed; top:12px; left:12px; z-index:10; padding:12px 20px; background:var(--ink); color:var(--bg); transform:translateY(-160%); }
-    .skip:focus { transform:translateY(0); }
-    .top-logo { text-align:center; padding:44px 24px 20px; }
-    .top-logo img { width:100%; max-width:360px; height:auto; display:inline-block; }
-    .site-nav { display:flex; gap:36px; justify-content:center; align-items:center; font-size:.84rem; color:var(--muted); }
-    .site-nav a { padding:13px 0; border-bottom:1px solid transparent; }
-    .site-nav a[aria-current="page"] { color:var(--ink); border-bottom-color:var(--gold); }
-    .site-nav a:hover { color:var(--ink); }
-    main { width:min(100% - 64px,1040px); margin:0 auto; }
-    .intro { text-align:center; padding:62px 0 38px; }
-    .eyebrow { color:var(--gold); font-family:"Cormorant Garamond",serif; letter-spacing:.24em; font-size:.83rem; margin:0 0 16px; }
-    h1 { margin:0; font-family:"Noto Serif KR","Batang",serif; font-size:clamp(1.8rem,3.4vw,2.5rem); line-height:1.5; font-weight:400; letter-spacing:-.035em; }
-    .intro-sub { font-size:.9rem; line-height:1.8; margin:16px 0 0; color:var(--muted); }
-    .characters { display:flex; justify-content:center; gap:clamp(24px,5.4vw,76px); padding:8px 12px 42px; }
-    .character-tab { flex:0 0 164px; display:flex; flex-direction:column; align-items:center; gap:17px; color:var(--muted); background:none; border:0; padding:10px 8px; cursor:pointer; border-radius:4px; }
-    .avatar { display:block; width:110px; height:110px; border-radius:50%; padding:5px; border:1px solid rgba(236,229,216,.16); transition:border-color .2s,box-shadow .2s,transform .2s; }
-    .avatar img { display:block; width:100%; height:100%; border-radius:50%; object-fit:cover; }
-    .tab-name { font-size:.94rem; letter-spacing:.02em; line-height:1.4; }
-    .character-tab:hover .avatar { border-color:var(--gold); transform:translateY(-3px); }
-    .character-tab[aria-selected="true"] { color:var(--ink); }
-    .character-tab[aria-selected="true"] .avatar { border-color:var(--gold); box-shadow:0 0 0 3px var(--bg),0 0 0 4px rgba(176,141,69,.45); }
-    .character-tab[aria-selected="true"] .tab-name { color:#d0b274; }
-    .detail { border-top:1px solid var(--line); padding-top:42px; display:grid; grid-template-columns:minmax(0,390px) minmax(0,1fr); gap:clamp(36px,6vw,78px); align-items:start; }
-    .portrait-frame { margin:0; position:relative; align-self:center; }
-    .portrait { width:100%; height:auto; aspect-ratio:9/16; object-fit:contain; display:block; background:var(--surface); border:1px solid var(--line); }
-    .portrait-caption { display:flex; justify-content:space-between; align-items:center; margin-top:14px; color:var(--muted); font-size:.68rem; letter-spacing:.1em; }
-    .portrait-caption span:first-child { font-family:"Cormorant Garamond",serif; color:var(--gold); }
-    .detail-copy { padding:12px 0 0; }
-    .detail-kicker { margin:0 0 16px; color:var(--gold); font-size:.72rem; letter-spacing:.18em; }
-    h2 { font-family:"Noto Serif KR","Batang",serif; font-size:clamp(2rem,4vw,2.7rem); font-weight:400; letter-spacing:-.04em; margin:0 0 9px; line-height:1.4; }
-    .role { font-size:.91rem; color:var(--muted); margin:0; line-height:1.7; }
-    .quote { font-family:"Noto Serif KR","Batang",serif; font-size:clamp(1.08rem,2vw,1.25rem); line-height:1.9; padding-left:21px; margin:34px 0 30px; border-left:1px solid var(--gold); color:#d9c8a6; }
-    .bio { font-size:.96rem; line-height:2; color:#c2bdb3; }
-    .bio p { margin:0 0 20px; white-space:pre-line; }
-    .quote { white-space:pre-line; }
-    .detail-footer { margin-top:38px; padding-top:20px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:16px; }
-    .detail-count { font-family:"Cormorant Garamond",serif; color:var(--muted); letter-spacing:.15em; font-size:.88rem; }
-    .next { border:0; background:none; color:var(--ink); cursor:pointer; padding:12px 0 12px 12px; font-size:.83rem; }
-    .next span { display:inline-block; color:var(--gold); margin-left:14px; transition:transform .2s; }
-    .next:hover span { transform:translateX(4px); }
-    .return { margin-top:64px; padding:26px 0; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px; font-size:.8rem; color:var(--muted); line-height:1.8; }
-    .return a { color:var(--ink); }
-    .return a:hover { color:#d0b274; }
-    footer { text-align:center; padding:28px 24px 44px; font-size:.72rem; color:var(--muted); }
-    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-    .appearing { animation:reveal .28s ease-out; }
-    @keyframes reveal { from { opacity:.35; transform:translateY(5px); } to { opacity:1; transform:translateY(0); } }
-    @media(max-width:700px) {
-      main { width:min(100% - 40px,520px); }
-      .top-logo { padding:28px 24px 12px; }
-      .top-logo img { max-width:280px; }
-      .intro { padding:40px 0 26px; }
-      .characters { justify-content:safe center; gap:18px; overflow-x:auto; padding:10px 9px 26px; scrollbar-width:thin; scrollbar-color:var(--gold) var(--bg); }
-      .character-tab { flex-basis:112px; padding:8px 2px; gap:13px; }
-      .avatar { width:78px; height:78px; padding:4px; }
-      .tab-name { font-size:.84rem; }
-      .detail { grid-template-columns:1fr; gap:26px; padding-top:28px; }
-      .portrait-frame { width:100%; max-width:390px; margin:0 auto; align-self:start; }
-      .detail-copy { padding:0; }
-      .quote { margin-top:26px; }
-      .detail-footer { margin-top:26px; }
-      .return { margin-top:40px; align-items:flex-start; flex-direction:column; gap:8px; }
-    }
-    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }
-  </style>
+  <link rel="stylesheet" href="reading.css">
   <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="world.css">
 </head>
 <body>
   <a class="skip" href="#main">본문으로 건너뛰기</a>
   <header class="top-logo"><a href="index.html" aria-label="작품 소개로 이동"><img src="images/brand-logo.jpg" alt="Iris Ashworth" width="720" height="288" decoding="async"></a></header>
-  <nav class="site-nav" aria-label="주 메뉴"><a href="index.html">작품 소개</a><a href="characters.html" aria-current="page">등장인물</a></nav>
+  <nav class="site-nav" aria-label="주 메뉴"><a href="index.html">작품 소개</a><a href="characters.html" aria-current="page">등장인물</a><a href="world.html">세계관</a></nav>
   <main id="main">
     <section class="intro" aria-labelledby="page-title">
       <p class="eyebrow">THE CHARACTERS</p>
       <h1 id="page-title">이야기를 살아가는 얼굴들</h1>
       <p class="intro-sub">한 사람의 얼굴 너머, 그 안에 담긴 이야기.<br>인물을 선택해 자세히 만나보세요.</p>
     </section>
-    <div class="characters" role="tablist" aria-label="등장인물 선택"></div>
+    <div class="collection-tools" id="roster-tools" hidden><label for="character-search">인물 찾기</label><input id="character-search" type="search" placeholder="이름이나 역할로 찾아보세요" autocomplete="off"></div>
+    <div class="characters" id="character-list" role="tablist" aria-label="등장인물 선택"></div>
+    <button type="button" class="collection-more" id="roster-more" aria-controls="character-list" aria-expanded="false" hidden>인물 전체 보기</button>
+    <p class="collection-empty" id="roster-empty" hidden>검색 결과가 없습니다. 다른 이름으로 찾아보세요.</p>
     <section class="detail" id="character-detail" role="tabpanel" tabindex="0" aria-labelledby="character-tab-0">
       <figure class="portrait-frame">
         <img class="portrait" id="portrait" alt="" width="1080" height="1920">
@@ -110,7 +43,7 @@
     </section>
     <p class="sr-only" id="selection-status" role="status" aria-live="polite"></p>
     <noscript><p>등장인물 선택 기능을 이용하려면 브라우저의 JavaScript를 켜주세요.</p></noscript>
-    <div class="return"><a href="index.html">← 작품 소개로 돌아가기</a><span>완벽한 얼굴을 그만두는 법 · IRIS ASHWORTH</span></div>
+    <div class="return"><a href="index.html">← 작품 소개로 돌아가기</a><a href="world.html">왕국의 세계관 살펴보기 →</a></div>
   </main>
   <footer>Published by Inner Architect</footer>
   <script>
@@ -182,17 +115,37 @@
       const label = document.createElement('span'); label.className = 'tab-name'; label.textContent = character.name;
       button.append(avatar,label); button.addEventListener('click',() => selectCharacter(index));
       button.addEventListener('keydown',event => {
+        const available=tabs.map((tab,i)=>!tab.hidden?i:-1).filter(i=>i>=0);
+        const cursor=available.indexOf(index);
         let next;
-        if(event.key === 'ArrowRight') next = (index+1)%characters.length;
-        else if(event.key === 'ArrowLeft') next = (index-1+characters.length)%characters.length;
-        else if(event.key === 'Home') next = 0;
-        else if(event.key === 'End') next = characters.length-1;
+        if(event.key === 'ArrowRight') next = available[(cursor+1)%available.length];
+        else if(event.key === 'ArrowLeft') next = available[(cursor-1+available.length)%available.length];
+        else if(event.key === 'Home') next = available[0];
+        else if(event.key === 'End') next = available[available.length-1];
         else return;
         event.preventDefault(); selectCharacter(next); tabs[next].focus();
         tabs[next].scrollIntoView({block:'nearest',inline:'nearest',behavior:'instant'});
       });
       tablist.append(button); return button;
     });
+    const search=document.querySelector('#character-search');
+    const rosterMore=document.querySelector('#roster-more');
+    let expanded=false;
+    function matchingCharacters(){const query=search.value.trim().toLocaleLowerCase();return characters.map((c,i)=>`${c.name} ${c.englishName} ${c.role}`.toLocaleLowerCase().includes(query)?i:-1).filter(i=>i>=0);}
+    function updateRoster(){
+      const matches=matchingCharacters();
+      if(matches.indexOf(selected)>=6)expanded=true;
+      const showAll=expanded||Boolean(search.value.trim());
+      tabs.forEach((tab,i)=>tab.hidden=!matches.includes(i)||(!showAll&&matches.indexOf(i)>=6));
+      rosterMore.hidden=matches.length<=6||Boolean(search.value.trim());
+      rosterMore.textContent=expanded?'목록 접기':`인물 전체 보기 (${matches.length})`;
+      rosterMore.setAttribute('aria-expanded',String(expanded));
+      document.querySelector('#roster-empty').hidden=matches.length>0;
+      panel.hidden=matches.length===0;
+    }
+    document.querySelector('#roster-tools').hidden=characters.length<=6;
+    search.addEventListener('input',()=>{const matches=matchingCharacters();if(matches.length&&!matches.includes(selected))selectCharacter(matches[0],false);updateRoster();document.querySelector('#selection-status').textContent=`${matches.length}명의 인물을 찾았습니다.`;});
+    rosterMore.addEventListener('click',()=>{expanded=!expanded;if(!expanded&&matchingCharacters().indexOf(selected)>=6)selectCharacter(matchingCharacters()[0],false);updateRoster();});
     function selectCharacter(index,announce = true) {
       selected = index;
       const character = characters[index];
@@ -214,11 +167,13 @@
       document.querySelector('#character-bio').replaceChildren(...character.paragraphs.map(text => { const p = document.createElement('p'); p.textContent = text; return p; }));
       document.querySelector('#detail-count').textContent = `${twoDigits(index+1)} / ${twoDigits(characters.length)}`;
       document.querySelector('.next').hidden = characters.length < 2;
+      updateRoster();
       panel.classList.remove('appearing'); void panel.offsetWidth; panel.classList.add('appearing');
       if(announce) document.querySelector('#selection-status').textContent = `${character.name} 소개가 표시되었습니다.`;
     }
     document.querySelector('.next').addEventListener('click',() => {
-      selectCharacter((selected+1)%characters.length);
+      const matches=matchingCharacters();
+      selectCharacter(matches[(matches.indexOf(selected)+1)%matches.length]);
       panel.focus({preventScroll:true});
       panel.scrollIntoView({block:'start',behavior:'instant'});
     });
