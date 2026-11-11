@@ -10,11 +10,12 @@
   <link rel="stylesheet" href="reading.css">
   <link rel="stylesheet" href="responsive.css">
   <link rel="stylesheet" href="world.css">
+<link rel="stylesheet" href="serial-preview.css">
 </head>
 <body>
   <a class="skip" href="#main">본문으로 건너뛰기</a>
-  <header class="top-logo"><a href="index.html" aria-label="작품 소개로 이동"><img src="images/brand-logo.jpg" alt="Iris Ashworth" width="720" height="288" decoding="async"></a></header>
-  <nav class="site-nav" aria-label="주 메뉴"><a href="index.html">작품 소개</a><a href="characters.html" aria-current="page">등장인물</a><a href="world.html">세계관</a></nav>
+  <header class="top-logo"><a href="index.html" aria-label="메인으로 돌아가기"><img src="images/brand-logo.png" alt="Iris Ashworth" width="1983" height="793" decoding="async"></a></header>
+  <nav class="site-nav" aria-label="주 메뉴"><a href="index.html">작품 소개</a><a href="contents.html">연재 목차</a><a href="characters.html" aria-current="page">등장인물</a><a href="world.html">세계관</a></nav>
   <main id="main">
     <section class="intro" aria-labelledby="page-title">
       <p class="eyebrow">THE CHARACTERS</p>
@@ -129,6 +130,18 @@
       tablist.append(button); return button;
     });
     const search=document.querySelector('#character-search');
+    // 미공개 자리는 실제 인물 수와 선택 순서에 포함하지 않습니다.
+    const teaserTabs = Array.from({length:2}, (_,index) => {
+      const button = document.createElement('button');
+      button.type = 'button'; button.className = 'character-tab character-teaser';
+      button.disabled = true; button.tabIndex = -1;
+      button.setAttribute('role','tab'); button.setAttribute('aria-selected','false');
+      button.setAttribute('aria-label',`미공개 인물 ${index+1} · 추후 공개 예정`);
+      const avatar = document.createElement('span'); avatar.className = 'avatar mystery-avatar';
+      avatar.setAttribute('aria-hidden','true'); avatar.textContent = '?';
+      const label = document.createElement('span'); label.className = 'tab-name'; label.textContent = '공개 예정';
+      button.append(avatar,label); tablist.append(button); return button;
+    });
     const rosterMore=document.querySelector('#roster-more');
     let expanded=false;
     function matchingCharacters(){const query=search.value.trim().toLocaleLowerCase();return characters.map((c,i)=>`${c.name} ${c.englishName} ${c.role}`.toLocaleLowerCase().includes(query)?i:-1).filter(i=>i>=0);}
@@ -137,6 +150,7 @@
       if(matches.indexOf(selected)>=6)expanded=true;
       const showAll=expanded||Boolean(search.value.trim());
       tabs.forEach((tab,i)=>tab.hidden=!matches.includes(i)||(!showAll&&matches.indexOf(i)>=6));
+      teaserTabs.forEach(tab=>tab.hidden=Boolean(search.value.trim())||(!showAll&&matches.length>6));
       rosterMore.hidden=matches.length<=6||Boolean(search.value.trim());
       rosterMore.textContent=expanded?'목록 접기':`인물 전체 보기 (${matches.length})`;
       rosterMore.setAttribute('aria-expanded',String(expanded));
