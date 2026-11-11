@@ -8,26 +8,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="reading.css"><link rel="stylesheet" href="responsive.css"><link rel="stylesheet" href="world.css">
   <script src="world.js" defer></script>
+<link rel="stylesheet" href="serial-preview.css">
 </head>
 <body>
   <a class="skip" href="#main">본문으로 건너뛰기</a>
-  <header class="top-logo"><a href="index.html" aria-label="작품 소개로 이동"><img src="images/brand-logo.jpg" alt="Iris Ashworth" width="720" height="288" decoding="async"></a></header>
-  <nav class="site-nav" aria-label="주 메뉴"><a href="index.html">작품 소개</a><a href="characters.html">등장인물</a><a href="world.html" aria-current="page">세계관</a></nav>
+  <header class="top-logo"><a href="index.html" aria-label="메인으로 돌아가기"><img src="images/brand-logo.png" alt="Iris Ashworth" width="1983" height="793" decoding="async"></a></header>
+  <nav class="site-nav" aria-label="주 메뉴"><a href="index.html">작품 소개</a><a href="contents.html">연재 목차</a><a href="characters.html">등장인물</a><a href="world.html" aria-current="page">세계관</a></nav>
   <main id="main">
     <section class="intro world-intro"><p class="eyebrow">THE WORLD OF ASHWORTH</p><h1>이야기 너머, 왕국의 법칙</h1><p class="intro-sub">거울에 비친 얼굴과 기록된 이름.<br>그 안에서 살아가는 이들의 세계를 만나보세요.</p></section>
     <section class="world-browser" id="world-browser" aria-label="세계관 목록">
-      <div class="browser-heading"><div class="world-filters" role="group" aria-label="세계관 분류" hidden><button type="button" data-world-filter="all" aria-pressed="true">전체</button><button type="button" data-world-filter="order" aria-pressed="false">왕국의 질서</button><button type="button" data-world-filter="objects" aria-pressed="false">사물과 문헌</button></div><p id="world-count">4개의 이야기</p></div>
+      <div class="browser-heading"><div class="world-filters" role="group" aria-label="세계관 분류" hidden><button type="button" data-world-filter="all" aria-pressed="true">전체</button><button type="button" data-world-filter="order" aria-pressed="false">왕국의 질서</button><button type="button" data-world-filter="objects" aria-pressed="false">사물과 문헌</button><button type="button" data-world-filter="forbidden" aria-pressed="false">금서</button></div><p id="world-count">4개의 이야기</p></div>
       <div class="collection-tools" id="world-search-tools" hidden><label for="world-search">세계관 찾기</label><input id="world-search" type="search" placeholder="이름이나 단어로 찾아보세요" autocomplete="off"></div>
-      <div class="world-cards"><a class="world-card" href="#mirror" data-category="order"><img src="images/world-mirror-thumb.jpg" alt="" width="50" height="64" decoding="async" style="object-position:50% 22%"><span><small>01 / 왕국의 질서</small><strong>거울</strong></span></a>
+      <div class="world-cards"><a class="world-card" href="#mirror" data-category="order"><img src="images/world-mirror-thumb.jpg" alt="" width="50" height="64" decoding="async" style="object-position:50% 15%"><span><small>01 / 왕국의 질서</small><strong>거울</strong></span></a>
 <a class="world-card" href="#records" data-category="order"><img src="images/world-records-thumb.jpg" alt="" width="50" height="64" decoding="async" style="object-position:50% 42%"><span><small>02 / 왕국의 질서</small><strong>이름과 기록</strong></span></a>
 <a class="world-card" href="#sapphire" data-category="objects"><img src="images/world-sapphire-thumb.jpg" alt="" width="50" height="64" decoding="async" style="object-position:50% 65%"><span><small>03 / 사물과 문헌</small><strong>사파이어 목걸이</strong></span></a>
-<a class="world-card" href="#unburnt" data-category="objects"><img src="images/world-unburnt-thumb.jpg" alt="" width="50" height="64" decoding="async" style="object-position:50% 42%"><span><small>04 / 사물과 문헌</small><strong>불에 타지 않는 것</strong></span></a></div>
+<a class="world-card" href="#unburnt" data-category="forbidden"><img src="images/world-unburnt-thumb.jpg" alt="" width="50" height="64" decoding="async" style="object-position:50% 42%"><span><small>04 / 금서</small><strong>불에 타지 않는 것</strong></span></a></div>
       <button class="collection-more" type="button" id="world-more" hidden>세계관 전체 보기</button>
       <p class="collection-empty" id="world-empty" hidden>검색 결과가 없습니다. 다른 단어로 찾아보세요.</p>
     </section>
     <p class="sr-only" id="world-status" role="status" aria-live="polite"></p>
     <article class="detail world-detail" id="mirror" tabindex="-1" aria-labelledby="mirror-title">
-  <figure class="portrait-frame"><img class="portrait" src="images/world-mirror-small.jpg" srcset="images/world-mirror-small.jpg 540w, images/world-mirror.jpg 900w" sizes="(max-width:900px) 260px, 340px" width="941" height="1672" alt="은빛 거울 천장과 왕좌가 있는 왕실 대전" loading="eager" decoding="async"><figcaption class="portrait-caption"><span>WORLD / 01</span><span>왕국의 질서</span></figcaption></figure>
+  <figure class="portrait-frame"><img class="portrait" src="images/world-mirror-small.jpg" srcset="images/world-mirror-small.jpg 540w, images/world-mirror.jpg 900w" sizes="(max-width:900px) 260px, 340px" width="941" height="1672" alt="왕실 무도회장 천장 중앙의 거대한 타원형 거울과 그 아래 촛불이 비치는 바닥" loading="eager" decoding="async"><figcaption class="portrait-caption"><span>WORLD / 01</span><span>왕국의 질서</span></figcaption></figure>
   <header class="detail-heading"><p class="detail-kicker">THE MIRROR</p><h2 id="mirror-title">거울</h2><p class="role">왕국이 인정하는 얼굴</p></header>
   <div class="detail-copy"><div class="bio"><p>애시워스 왕국의 거울은 외모만을 비추지 않는다. 한 사람의 행동과 공식 기록, 사람들 사이에 쌓인 평가가 거울 속 모습에 반영된다. 왕국은 이 모습을 ‘인영’이라 부른다.</p>
 <p>사람들은 인영을 통해 누군가를 믿고, 자격을 인정한다. 혼인과 직업, 거주를 허락받는 일까지 거울 속 모습에 연결되어 있다.</p>
@@ -51,7 +52,7 @@
   <nav class="world-reading-nav" aria-label="세계관 이동"><a href="#world-browser" data-world-back>↑ 목록으로</a><a href="#unburnt" data-world-next>다음 이야기 →</a></nav></div>
 </article>
 <article class="detail world-detail" id="unburnt" tabindex="-1" aria-labelledby="unburnt-title">
-  <figure class="portrait-frame"><img class="portrait" src="images/world-unburnt-small.jpg" srcset="images/world-unburnt-small.jpg 540w, images/world-unburnt.jpg 900w" sizes="(max-width:900px) 260px, 340px" width="941" height="1672" alt="불에 타지 않는 것이라는 제목이 새겨진 검고 오래된 책 표지" loading="lazy" decoding="async"><figcaption class="portrait-caption"><span>WORLD / 04</span><span>사물과 문헌</span></figcaption></figure>
+  <figure class="portrait-frame"><img class="portrait" src="images/world-unburnt-small.jpg" srcset="images/world-unburnt-small.jpg 540w, images/world-unburnt.jpg 900w" sizes="(max-width:900px) 260px, 340px" width="941" height="1672" alt="불에 타지 않는 것이라는 제목이 새겨진 검고 오래된 책 표지" loading="lazy" decoding="async"><figcaption class="portrait-caption"><span>WORLD / 04</span><span>금서</span></figcaption></figure>
   <header class="detail-heading"><p class="detail-kicker">THE UNBURNT</p><h2 id="unburnt-title">금서 『불에 타지 않는 것』</h2><p class="role">왕국이 존재를 부정하는 책</p></header>
   <div class="detail-copy"><div class="bio"><p>누가 썼는지, 언제 만들어졌는지 알려지지 않은 책. 불에 타지 않아 소각되지 못한 채 봉인되어 있지만, 왕국은 그 책이 존재하지 않는다고 말한다.</p>
 <p>책은 거울의 판정과 기록이 한 사람의 전부를 설명할 수 있는지 묻는다. 당연하게 받아들였던 이름과 역할, 옳다고 믿어온 삶을 다시 바라보게 한다.</p>
