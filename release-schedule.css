@@ -1,0 +1,15 @@
+[data-release-gate][hidden] { display:none !important; }
+[data-release-href][aria-disabled="true"] { cursor:default; color:var(--muted); text-decoration:none; }
+.episode-page .list [aria-disabled="true"] { opacity:.75; }
+.release-gate { margin:26px 0 40px; padding:28px 20px; border:1px solid var(--gold); line-height:1.85; text-align:center; }
+.release-gate p { margin:0 0 12px; }
+.release-gate .release-date { color:var(--gold); font-size:1.05rem; }
+.release-gate .read-button { margin-top:12px; }
+.episode-page footer { flex-wrap:wrap; gap:12px; }
+.episode-page footer [data-release-href] { max-width:100%; text-align:center; overflow-wrap:anywhere; }
+.youtube-player iframe { display:block; border:0; width:min(100%,320px); height:auto; aspect-ratio:9/16; margin:8px auto 16px; background:#101014; }
+.youtube-player { color:var(--muted); line-height:1.8; }
+@media(max-width:400px) {
+ .episode-page footer [data-release-href] { width:100%; }
+ .release-gate { padding:24px 14px; }
+}
