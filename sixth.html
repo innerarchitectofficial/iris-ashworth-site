@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="serial-preview.css">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="stylesheet" href="release-schedule.css?v=20261112">
-  <script defer src="release-schedule.js?v=20261116"></script>
+  <script defer src="release-schedule.js?v=20261116-media"></script>
 </head>
 <body><header class="top-logo">
     <a href="index.html" aria-label="메인으로 돌아가기"><img src="images/brand-logo.png" alt="Iris Ashworth" width="1983" height="793" decoding="async"></a>
@@ -34,6 +34,14 @@
       <div id="released-episode"></div>
       <template id="chapter-content">
       
+      <section class="soundtrack" id="ost" aria-labelledby="ost-title">
+        <p id="ost-title">이 회차의 OST 듣기</p>
+        <audio controls preload="none" aria-label="거울밖의 왈츠 · 6화 OST" src="media/chapter-6-ost.m4a"></audio>
+        <p class="ost-subscribe">
+          <a href="https://www.youtube.com/@ia.irisashworth" target="_blank" rel="noopener">유튜브에서 ‘아이리스 애시워스’를 구독하세요.</a>
+          <span>회차별 플레이리스트와 애시워스 왕국의 이야기를 이어서 만날 수 있습니다.</span>
+        </p>
+      </section>
       <article class="episode-story" aria-label="제6화 본문">
 <p>홀리스가 아이리스를 무도회장 중앙으로 이끌었다.</p>
 <p>사람들이 둘을 위해 물러났다. 천장의 거울마다 두 사람의 모습이 차례로 비쳤다.</p>
@@ -208,6 +216,10 @@
 <p>커런이 손을 내밀었다. 입술 끝을 들어 올리고 눈매의 힘을 풀었다. 거울 속 미소를 다시 제자리에 놓았다.</p>
 <p><strong>그러나 예전처럼 완벽하지는 않았다</strong>.</p>
 </article>
+      <details class="scene-short episode-video" data-youtube-id="kSRpY18GdXw" data-player-title="제6화 장면 쇼츠">
+        <summary>이 장면 쇼츠로 보기</summary>
+        <div class="youtube-player"></div>
+      </details>
       
       <footer><a href="fifth.html">← 5화 읽기</a><a class="read-button" href="contents.html">전체 회차 보기</a></footer>
       </template>

@@ -18,7 +18,7 @@
           return;
         }
         const player = document.createElement('iframe');
-        player.title = '제5화 장면 쇼츠';
+        player.title = details.dataset.playerTitle || '이 장면 쇼츠로 보기';
         player.width = '320';
         player.height = '569';
         player.referrerPolicy = 'strict-origin-when-cross-origin';
