@@ -2,7 +2,6 @@
   'use strict';
   // 화면 예약 공개용입니다. 정적 저장소의 원본 파일 접근을 차단하지는 않습니다.
   // 모든 시각은 UTC 오프셋이 있는 ISO 문자열로 지정합니다.
-  const entries = [...document.querySelectorAll('[data-release-at]')];
   const gates = [...document.querySelectorAll('[data-release-gate]')];
   let timer;
 
@@ -41,7 +40,22 @@
     clearTimeout(timer);
     const now = Date.now();
     let next = Infinity;
-    for (const entry of entries) {
+    for (const gate of gates) {
+      const at = Date.parse(gate.dataset.releaseAt);
+      if (!Number.isFinite(at) || now < at || gate.dataset.released) continue;
+      const template = document.getElementById(gate.dataset.releaseTemplate);
+      const target = document.getElementById(gate.dataset.releaseTarget);
+      if (!template || !target) continue;
+      target.append(template.content.cloneNode(true));
+      template.remove();
+      gate.dataset.released = 'true';
+      gate.hidden = true;
+      initShorts(target);
+      const script = document.createElement('script');
+      script.src = 'episode-media.js';
+      document.body.append(script);
+    }
+    for (const entry of document.querySelectorAll('[data-release-at]')) {
       const at = Date.parse(entry.dataset.releaseAt);
       const available = Number.isFinite(at) && now >= at;
       if (!available && Number.isFinite(at)) next = Math.min(next, at);
@@ -59,21 +73,6 @@
           label.textContent = available ? label.dataset.releaseOpen : label.dataset.releasePending;
         }
       }
-    }
-    for (const gate of gates) {
-      const at = Date.parse(gate.dataset.releaseAt);
-      if (!Number.isFinite(at) || now < at || gate.dataset.released) continue;
-      const template = document.getElementById(gate.dataset.releaseTemplate);
-      const target = document.getElementById(gate.dataset.releaseTarget);
-      if (!template || !target) continue;
-      target.append(template.content.cloneNode(true));
-      template.remove();
-      gate.dataset.released = 'true';
-      gate.hidden = true;
-      initShorts(target);
-      const script = document.createElement('script');
-      script.src = 'episode-media.js';
-      document.body.append(script);
     }
     if (Number.isFinite(next)) timer = setTimeout(update, Math.min(60000, Math.max(100, next - now)));
   }
