@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="responsive.css">
   <link rel="stylesheet" href="world.css">
 <link rel="stylesheet" href="serial-preview.css">
+  <style>
+    #character-list .avatar img { height:auto; aspect-ratio:1; object-fit:cover; }
+  </style>
 </head>
 <body>
   <a class="skip" href="#main">본문으로 건너뛰기</a>
@@ -97,12 +100,22 @@
       {
         name:'칼리스타 렌', englishName:'CALISTA WREN',
         role:'원형 거울을 관리하고 판정을 선언하는 인영원의 대사제.',
-        image:'images/calista-wren.jpg', imageSmall:'images/calista-wren-small.jpg', thumbnail:'images/calista-wren-thumb.jpg', imagePosition:'center',
+        image:'images/calista-wren.jpg?v=20261118', imageSmall:'images/calista-wren-small.jpg?v=20261118', thumbnail:'images/calista-wren-thumb.jpg?v=20261118', imagePosition:'center',
         paragraphs:[
           '이마에서 광대까지 덮은 은가면에 두 눈이 가려져 있다. 세상을 직접 볼 수 없으며, 오직 거울에 비친 것만을 본다. 낮고 흔들림 없는 목소리로 판정을 선언하는 그녀에게 거울은 세상을 바라보는 유일한 창이다.',
           '사람의 말과 감정은 달라져도 거울의 판정은 흔들려서는 안 된다고 믿는다. 완벽한 후계자 아이리스는 그 믿음을 증명하는 존재다. 칼리스타는 그녀를 높이 평가하며, 정해진 자리에서 벗어나려는 기색에도 누구보다 민감하다.',
           '다른 이들의 삶에는 분명한 판정을 내리는 그녀에게도, 정작 자신이 기억하지 못하는 시간이 있다. 거울과 기록을 그토록 믿게 된 이유는 어쩌면 그 빈자리와 닿아 있을지도 모른다.'
         ], color:'#595756'
+      },
+      {
+        name:'이름 없는 존재', englishName:'THE NAMELESS CREATURE',
+        role:'어떤 거울에도 비치지 않는, 아이리스의 신비로운 동행자.',
+        image:'images/nameless-creature.jpg', imageSmall:'images/nameless-creature-small.jpg', thumbnail:'images/nameless-creature-thumb.jpg', imagePosition:'center',
+        paragraphs:[
+          '여우와 고양이 사이처럼 보이는 작은 존재. 어디에서 왔는지, 언제부터 왕궁을 드나들었는지 아는 사람은 없다. 닫힌 문 너머에도 불쑥 나타나지만, 누군가 다가오면 흔적 없이 모습을 감춘다.',
+          '유독 아이리스에게는 곁을 내어준다. 때로는 말없이 함께 머물고, 때로는 오래 감춰진 곳으로 그녀의 시선을 이끈다. 우연히 제 길을 가는 것인지, 그녀에게 무언가를 보여주려는 것인지는 알 수 없다.',
+          '아이리스만의 비밀처럼 여겨졌던 존재는 뜻밖에도 홀리스 앞에서 사라지지 않는다. 스스로 다가가 손길까지 허락하는 작은 짐승. 어째서 두 사람에게는 모습을 드러내는지, 그 눈으로 무엇을 보고 있는지는 여전히 수수께끼다.'
+        ], color:'#605044'
       }
     ];
     const twoDigits = number => String(number).padStart(2,'0');
